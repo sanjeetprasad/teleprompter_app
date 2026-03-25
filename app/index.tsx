@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect } from 'react';
 import { router } from 'expo-router';
 import { View } from 'react-native';
@@ -12,4 +13,12 @@ export default function Index() {
   }, [seenOnboarding]);
 
   return <View style={styles.screen} />;
+=======
+import { Redirect } from 'expo-router';
+import { useAppStore } from '@/store/app-store';
+
+export default function Index() {
+  const seenOnboarding = useAppStore((s) => s.seenOnboarding);
+  return <Redirect href={seenOnboarding ? '/(tabs)/library' : '/onboarding'} />;
+>>>>>>> origin/main
 }
